@@ -3,10 +3,14 @@ package xinan.demo.classloader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.WritableByteChannel;
+
 
 /**
  * @author xinan
@@ -22,6 +26,32 @@ public class MyClassLoader extends ClassLoader
     public MyClassLoader(ClassLoader parent)
     {
         super(parent);
+    }
+
+    @Override
+    public Class<?> loadClass(String name)
+        throws ClassNotFoundException {
+
+
+        try {
+            String className = name.substring(name.lastIndexOf(".") + 1) + ".class";
+            //这一句很重要，避免通过反射自己加载自己时造成死循环
+            if(className.contains("MyClassLoader")){return super.loadClass(name);}
+            //MyClassLoader加载指定目录的Person类
+            if(className.contains("Person")){
+                return findClass(name);
+            }
+            InputStream is = this.getClass().getResourceAsStream(className);
+            if (is == null) {
+                return super.loadClass(name);
+            } else {
+                byte[] b = new byte[is.available()];
+                is.read(b);
+                return this.defineClass(name, b, 0, b.length);
+            }
+        } catch (IOException var5) {
+            throw new ClassNotFoundException(name);
+        }
     }
 
     @Override
@@ -44,6 +74,11 @@ public class MyClassLoader extends ClassLoader
 
     private File getClassFile(String name)
     {
+        //if (!"/Users/xinan/Person.class".equals(name)){
+        //    File file = new File("/Users/xinan/IdeaProjects/my/xinan-demo/xinan-demo-start/target/classes/xinan/demo"
+        //        + "/classloader/"+name.substring(name.lastIndexOf(".") + 1) + ".class");
+        //    return file;
+        //}
         File file = new File("/Users/xinan/Person.class");
         return file;
     }

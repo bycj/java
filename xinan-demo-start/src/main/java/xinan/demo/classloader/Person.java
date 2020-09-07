@@ -29,6 +29,7 @@ public class Person
         this.name = name;
     }
 
+    @Override
     public String toString()
     {
         return "I am a person, my name is " + name;
