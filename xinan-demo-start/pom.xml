@@ -15,6 +15,10 @@
 
     <dependencies>
         <dependency>
+            <groupId>com.taobao.pandora</groupId>
+            <artifactId>pandora.container</artifactId>
+        </dependency>
+        <dependency>
             <groupId>xinan.demo</groupId>
             <artifactId>xinan-demo-service</artifactId>
         </dependency>
