@@ -49,10 +49,7 @@ public class TestClassLoader {
 
         TestMyClassloader testMyClassloader = new TestMyClassloader();
         testMyClassloader.foo();
-
     }
-
-
 
 }
 
