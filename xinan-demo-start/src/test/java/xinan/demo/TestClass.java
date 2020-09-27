@@ -6,13 +6,17 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
+import xinan.demo.classloader.Person;
 
 /**
  * @author xinan
  * @date 2020/09/04
  */
-public class TestClassLoader {
+public class TestClass {
     @Test
+    /**
+     * test classloader
+     */
     public void testClassLoader(){
             System.out.println("1-"+ClassLoader.getSystemClassLoader());
             //extensions class loader
@@ -36,5 +40,15 @@ public class TestClassLoader {
 
             System.out.println("queryResult:"+monitorResult);
 
+    }
+
+    @Test
+    public void testValueOrRef(){
+        ArrayList<Person>arrayList = new ArrayList<>();
+       for (int i=0;i<10;i++){
+           Person person = new Person("name"+i);
+           arrayList.add(person);
+       }
+       System.out.println(arrayList);
     }
 }
