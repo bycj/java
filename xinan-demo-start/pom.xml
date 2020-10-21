@@ -15,14 +15,13 @@
 
     <dependencies>
         <dependency>
-<<<<<<< HEAD
+
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>
             <version>2.9.2</version>
         </dependency>
         <dependency>
-=======
->>>>>>> 95f1e98102f28a2d96e1c7b8b7e9e91b0204b2d9
+
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.18</version>

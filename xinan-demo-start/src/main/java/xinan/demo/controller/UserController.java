@@ -18,7 +18,7 @@ import xinan.demo.service.UserService;
  * @date 2020/05/23
  */
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 @Api(tags = "用户")
 public class UserController {
 
@@ -26,7 +26,7 @@ public class UserController {
     UserService userService;
 
     @ApiOperation(value = "获取用户")
-    @RequestMapping("/getuser")
+    @RequestMapping("/getuser.json")
     UserDO getUser(@RequestParam(value = "age") Integer age){
         return userService.getUser(age);
     }
