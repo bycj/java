@@ -1,4 +1,4 @@
-package xinan.demo.classloader;
+package xinan.demo.baselearn.classloader;
 
 /**
  * @author xinan

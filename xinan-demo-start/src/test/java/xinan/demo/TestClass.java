@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.junit.Test;
-import xinan.demo.classloader.Person;
+import xinan.demo.baselearn.classloader.Person;
 
 /**
  * @author xinan

@@ -2,7 +2,7 @@ package xinan.demo.service;
 
 
 
-import xinan.demo.dal.dto.UserDO;
+import xinan.demo.dal.DO.UserDO;
 
 
 /**

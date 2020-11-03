@@ -1,10 +1,6 @@
-package xinan.demo.baselearn.ref;
-
-
+package xinan.demo.baselearn.reflection;
 
 import xinan.demo.baselearn.proxy.Student;
-
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

@@ -1,4 +1,4 @@
-package xinan.demo.dal.dto;
+package xinan.demo.dal.DO;
 
 import lombok.Data;
 

@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="xinan.demo.dal.mapper.UserDAO" >
- <select id="getUser" resultType ="xinan.demo.dal.dto.UserDO">
+ <select id="getUser" resultType ="xinan.demo.dal.DO.UserDO">
 
   select
   id,

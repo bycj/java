@@ -4,7 +4,7 @@ package xinan.demo.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import xinan.demo.dal.dto.UserDO;
+import xinan.demo.dal.DO.UserDO;
 import xinan.demo.dal.mapper.UserDAO;
 
 

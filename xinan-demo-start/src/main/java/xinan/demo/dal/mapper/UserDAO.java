@@ -2,7 +2,7 @@ package xinan.demo.dal.mapper;
 
 
 import org.apache.ibatis.annotations.Mapper;
-import xinan.demo.dal.dto.UserDO;
+import xinan.demo.dal.DO.UserDO;
 
 
 /**
