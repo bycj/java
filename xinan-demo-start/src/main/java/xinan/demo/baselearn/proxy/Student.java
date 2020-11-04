@@ -1,9 +1,12 @@
 package xinan.demo.baselearn.proxy;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author xinan
  * @date 2019/12/11
  */
+@Component
 public class Student implements Stu{
 
     public String sex;
