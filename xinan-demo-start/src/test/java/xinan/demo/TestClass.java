@@ -13,6 +13,7 @@ import xinan.demo.baselearn.classloader.Person;
  * @date 2020/09/04
  */
 public class TestClass {
+
     @Test
     /**
      * test classloader
@@ -50,5 +51,23 @@ public class TestClass {
            arrayList.add(person);
        }
        System.out.println(arrayList);
+    }
+
+    /**
+     * 测试map的遍历
+     */
+    @Test
+    public void testMapIterator(){
+        List<Map<String,Object>>list1 = new ArrayList<>();
+        List<Map<String,Object>>list2 = new ArrayList<>();
+        List<Map<String,Object>>list3 = new ArrayList<>();
+        for (Map<String,Object> map1 : list2){
+            String pageId1 = (String)map1.get("pageId");
+            for (Map<String,Object>map2 :list2){
+                if (!map2.containsKey(pageId1)){
+                    list3.add(map2);
+                }
+            }
+        }
     }
 }
