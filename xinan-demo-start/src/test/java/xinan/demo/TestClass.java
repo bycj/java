@@ -58,7 +58,6 @@ public class TestClass {
      */
     @Test
     public void testMapIterator(){
-        List<Map<String,Object>>list1 = new ArrayList<>();
         List<Map<String,Object>>list2 = new ArrayList<>();
         List<Map<String,Object>>list3 = new ArrayList<>();
         for (Map<String,Object> map1 : list2){
