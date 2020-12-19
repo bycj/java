@@ -1,4 +1,4 @@
-package xinan.demo.baselearn.bean;
+package xinan.demo.baselearn.httpclient;
 
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
