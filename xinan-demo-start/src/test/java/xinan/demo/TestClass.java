@@ -10,11 +10,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.securitysdk.fastjson.JSON;
 import com.alibaba.securitysdk.fastjson.JSONArray;
 import com.alibaba.securitysdk.fastjson.JSONObject;
 import org.apache.commons.io.FileUtils;
 import org.junit.Test;
 import xinan.demo.baselearn.classloader.Person;
+import xinan.demo.baselearn.stream.User;
 
 /**
  * @author xinan
@@ -109,5 +111,45 @@ public class TestClass {
             int s = (int) array.get(i);
             System.out.println(s);
         }
+    }
+
+    @Test
+    public void testObjectToJson(){
+        User user = new User(1,"xinan");
+        ArrayList<User> arrayList = new ArrayList<>();
+        arrayList.add(user);
+        Object jsonObject = JSON.toJSON(user);
+        Object jsonArray = JSON.toJSON(arrayList);
+        if (jsonObject instanceof JSONObject){
+            JSONObject jsonObject1 = (JSONObject)jsonObject;
+            System.out.println(jsonObject1);
+            System.out.println(jsonObject);
+        }
+        if (jsonArray instanceof JSONArray){
+            JSONArray jsonArray1 = (JSONArray)jsonArray;
+            System.out.println(jsonArray1);
+            System.out.println(jsonArray);
+        }
+    }
+
+    @Test
+    public void testForEach(){
+
+        ArrayList<String> arrayList = new ArrayList<>();
+        for (Object object:arrayList) {
+
+        }
+        System.out.println("0 size list can foreach");
+
+        List list = null;
+        try {
+            for (Object object1:list) {
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("null cannot foreach");
+        }
+        System.out.println("test pass");
     }
 }
