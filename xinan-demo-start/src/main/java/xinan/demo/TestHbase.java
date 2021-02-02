@@ -7,10 +7,9 @@ import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.io.compress.Compression;
 import org.apache.hadoop.hbase.util.Bytes;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+
+import static java.util.stream.Collectors.toList;
 
 public class TestHbase {
     private static final String TABLE_NAME = "user";
@@ -120,38 +119,23 @@ public class TestHbase {
         System.out.println("end selectOne");
     }
 
-//    private static void selectByFilter(Connection connection) throws Exception {
-//        // https://hbase.apache.org/2.2/book.html#client.filter
-//        Table table = connection.getTable(TableName.valueOf(TABLE_NAME));
-//        Scan scan = new Scan();
-//        ColumnValueFilter filter = new ColumnValueFilter(
-//                Bytes.toBytes(CF_NAME),
-//                Bytes.toBytes("age"),
-//                CompareOperator.EQUAL,
-//                Bytes.toBytes(10)
-//        );
-//        scan.setFilter(filter);
-//        ResultScanner resultScanner = table.getScanner(scan);
-//        List<Map<String, Object>> dataList = new ArrayList<>();
-//        for (Result result : resultScanner) {
-//            List<Cell> cellList = result.listCells();
-//            for (Cell cell : cellList) {
-//                Map<String, Object> data = new HashMap<>();
-//                // 取行健
-//                data.put("rowKey", Bytes.toString(CellUtil.cloneRow(cell)));
-//                // 取时间戳
-//                data.put("timestamp", cell.getTimestamp());
-//                // 取列簇
-//                data.put("family", Bytes.toString(CellUtil.cloneFamily(cell)));
-//                // 取列
-//                data.put("qualifier", Bytes.toString(CellUtil.cloneQualifier(cell)));
-//                // 取值
-//                data.put("value", Bytes.toInt(CellUtil.cloneValue(cell)));
-//                dataList.add(data);
-//            }
-//        }
-//        System.out.println(dataList);
-//        System.out.println("end selectAll");
-//    }
+    public static List<Map<String,Object>> receiveCollectionList(List<Map<String,Object>> todayItemIdList, List<String> itemList) {
+        List<Map<String,Object>> resultList = new ArrayList<Map<String,Object>>();
+        for (Map<String,Object> map :todayItemIdList){
+            for (String key : map.keySet()){
+                if (itemList.contains(key)){
+                    resultList.add(map);
+                    break;
+                }
+            }
+        }
+        return resultList;
+
+    }
+
+    public static List<String> jiaoji(List<String>todayItemList,List<String>yesterdayItemList){
+        List<String> itemList = todayItemList.stream().filter(item -> yesterdayItemList.contains(item)).collect(toList());
+        return itemList;
+    }
 
 }
