@@ -1,5 +1,6 @@
 package xinan.demo.baselearn.io;
 
+import java.io.File;
 import java.io.FileInputStream;
 
 /**
@@ -9,6 +10,8 @@ import java.io.FileInputStream;
  **/
 public class StreamIo {
     public static void main(String[] args) throws Exception {
+
+
 
         FileInputStream inputStream = new FileInputStream("a.txt");
         byte[] bytes = new byte[1024];
