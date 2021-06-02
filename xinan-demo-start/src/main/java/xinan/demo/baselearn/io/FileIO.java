@@ -22,7 +22,7 @@ public class FileIO {
         File file3 = new File("/Users/xinan","xinan2.txt");
         file3.createNewFile();
 
-        File file1 = new File("/Users/xinan");
+        File file1 = new File("/Users/xinan/");
         File file4 = new File(file1,"xinan4.txt");
         file4.createNewFile();
     }

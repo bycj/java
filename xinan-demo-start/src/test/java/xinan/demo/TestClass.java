@@ -5,10 +5,7 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import com.alibaba.securitysdk.fastjson.JSON;
 import com.alibaba.securitysdk.fastjson.JSONArray;
@@ -177,5 +174,61 @@ public class TestClass {
             System.out.println("null cannot foreach");
         }
         System.out.println("test pass");
+    }
+
+    @Test
+    public void testIndexCode () {
+        String indexCode = "sycm.uv,sycm.pv,juhuasuan.uv,chaotui.pv";
+        //对indexCode进行分组
+        List<String> indexes = Arrays.asList(indexCode.split(","));
+        System.out.println(indexes);
+        System.out.print(String.join(",",indexes));
+        List<String> sycmIndexes = new ArrayList<>();
+        List<String> juhuasuanIndexes = new ArrayList<>();
+        List<String> zhitongcheIndexes = new ArrayList<>();
+        List<String> zhitongcheZhanghuIndexes = new ArrayList<>();
+        List<String> chaotuiIndexes = new ArrayList<>();
+        List<String> wuliuIndexes = new ArrayList<>();
+        List<String> pingjiaIndexes = new ArrayList<>();
+        for (String index : indexes) {
+            String []indexwithPre= index.split("\\.");
+            String indexPre = indexwithPre[0];
+            String indexValue = indexwithPre[1];
+            switch (indexValue){
+                case "sycm" :
+                    sycmIndexes.add(indexValue);
+                    break;
+                case "juhuasuan":
+                    juhuasuanIndexes.add(indexValue);
+                    break;
+                case "zhitongche":
+                    zhitongcheIndexes.add(indexValue);
+                    break;
+                case "chaotui":
+                    chaotuiIndexes.add(indexValue);
+                    break;
+                case "wuliu":
+                    wuliuIndexes.add(indexValue);
+                    break;
+                case "pingjia":
+                    pingjiaIndexes.add(indexValue);
+                    break;
+            }
+//            if (index.startsWith("sycm")) {
+//                sycmIndexes.add(index.substring(4));
+//            } else if (index.startsWith("juhuasuan")) {
+//                juhuasuanIndexes.add(index.substring(9));
+//            } else if (index.startsWith("zhitongche")) {
+//                if ()
+//                zhitongcheIndexes.add(index.substring(10));
+//            } else if (index.startsWith("chaotui")) {
+//                chaotuiIndexes.add(index.substring(7));
+//            } else if (index.startsWith("wuliu")) {
+//                wuliuIndexes.add(index.substring(5));
+//            } else if (index.startsWith("pingjia")) {
+//                pingjiaIndexes.add(index.substring(5));
+//            }
+        }
+
     }
 }
