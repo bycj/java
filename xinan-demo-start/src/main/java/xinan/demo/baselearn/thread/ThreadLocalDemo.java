@@ -1,15 +1,18 @@
 package xinan.demo.baselearn.thread;
 
-import java.util.concurrent.CountDownLatch;
+
+import io.swagger.models.auth.In;
+
+import java.util.concurrent.*;
 
 /**
  * @author xinan
  * @date 2020/04/22
  */
 public class ThreadLocalDemo {
+    static ExecutorService executors = Executors.newSingleThreadExecutor();
 
     public static void main(String[] args) throws InterruptedException {
-
         int threads = 3;
         CountDownLatch countDownLatch = new CountDownLatch(threads);
         InnerClass innerClass = new InnerClass();
@@ -26,6 +29,7 @@ public class ThreadLocalDemo {
         countDownLatch.await();
 
     }
+
 
     private static class InnerClass {
 

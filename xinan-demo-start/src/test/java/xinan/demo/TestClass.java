@@ -160,6 +160,7 @@ public class TestClass {
     public void testForEach(){
 
         ArrayList<String> arrayList = new ArrayList<>();
+        arrayList.forEach(a->System.out.print(a));
         for (Object object:arrayList) {
 
         }
@@ -214,6 +215,8 @@ public class TestClass {
                 case "pingjia":
                     pingjiaIndexes.add(indexValue);
                     break;
+                default:
+                    break;
             }
 //            if (index.startsWith("sycm")) {
 //                sycmIndexes.add(index.substring(4));
@@ -232,15 +235,15 @@ public class TestClass {
         }
 
     }
-    @Test
-    public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer>map = new HashMap<>();
-        for (int i=0;i<nums.length;i++) {
-            map.put(nums[i],i);
-            if(map.containsKey(target-nums[i])) {
-                return new int []{map.get(target-nums[i]),i};
-            }
-        }
-        return null;
-    }
+//    @Test
+//    public int[] twoSum(int[] nums, int target) {
+//        Map<Integer, Integer>map = new HashMap<>();
+//        for (int i=0;i<nums.length;i++) {
+//            map.put(nums[i],i);
+//            if(map.containsKey(target-nums[i])) {
+//                return new int []{map.get(target-nums[i]),i};
+//            }
+//        }
+//        return null;
+//    }
 }

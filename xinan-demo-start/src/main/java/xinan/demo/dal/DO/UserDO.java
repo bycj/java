@@ -6,6 +6,7 @@ import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.text.DecimalFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * @author xinan
@@ -27,7 +28,13 @@ public class UserDO implements Comparable<UserDO>{
     }
 
     public static void main (String args[]){
-        Map<String,Integer> map = new HashMap<>();
+        List<String> l = new ArrayList<>();
+        l.add("你好");
+        l.add("你好");
+        l.add("你好");
+        System.out.print(l.stream().map(n -> "\""+String.valueOf(n)+"\"")
+                .collect(Collectors.joining("、")).getClass());
+        HashMap<String,Integer> map = new HashMap<>();
         List<Map.Entry<String,Integer>> list1 = new ArrayList<Map.Entry<String, Integer>>(map.entrySet());
         list1.sort(new Comparator<Map.Entry<String, Integer>>() {
             @Override
@@ -48,6 +55,8 @@ public class UserDO implements Comparable<UserDO>{
         list.add(userDO);
         list.add(userDO2);
         list.add(userDO3);
+        System.out.println(list.stream().collect(Collectors.toMap(UserDO::getId,e->e)));
+        System.out.println(list.stream().collect(Collectors.groupingBy(UserDO::getId)));
         list.sort(new Comparator<UserDO>() {
             @Override
             public int compare(UserDO o1, UserDO o2) {
