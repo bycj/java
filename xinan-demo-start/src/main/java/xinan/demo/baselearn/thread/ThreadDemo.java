@@ -1,5 +1,8 @@
 package xinan.demo.baselearn.thread;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.*;
 
 import static java.util.concurrent.TimeUnit.MILLISECONDS;
@@ -17,7 +20,7 @@ public class ThreadDemo {
         callRunnable();
     }
     static void runnableDemo () {
-        System.out.println("runnableDemo:"+fib(20));
+        new Thread(()->System.out.println("runnableDemo:"+fib(20))).start();
     }
 
     static void callRunnable (){
